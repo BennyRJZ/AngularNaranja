@@ -1,0 +1,62 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Usuarios Registrados</h4>
+                        <h1></h1>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>
+                                        ID
+                                    </th>
+                                    <th>
+                                        Nombre
+                                    </th>
+                                    <th>
+                                        Apellido
+                                    </th>
+                                    <th>
+                                        Correo
+                                    </th>
+                                    <th>
+                                        Número Telefónico
+                                    </th>
+                                    <th>
+                                        Código Postal
+                                    </th>
+                                    <th>
+                                        Fecha de Nacimiento
+                                    </th>
+                                    <th></th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let user of arrayOfusers" class="list-group-item-action">
+                                        <td>{{user.id}}</td>
+                                        <td>{{user.name}}</td>
+                                        <td>{{user.last_name}}</td>
+                                        <td>{{user.email}}</td>
+                                        <td>{{user.phone_number}}</td>
+                                        <td>{{user.postal_code}}</td>
+                                        <td>{{user.birthdate}}</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <button class="btn btn-danger" type="button" (click)="deleteUser(user.id)">
+borrar                                                </button>
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,148 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Puntos de Interés</h4>
+                        <h1></h1>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>
+                                        ID
+                                    </th>
+                                    <th>
+                                        Nombre
+                                    </th>
+                                    <th>
+                                        Longitud
+                                    </th>
+                                    <th>
+                                        Latitud
+                                    </th>
+                                    <th>
+                                        Place Type ID
+                                    </th>
+                                    <th>
+                                        Descripcion
+                                    </th>
+                                    <th>
+                                        Narrativa
+                                    </th>
+                                    <th></th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let place of arrayOfPlaces" class="list-group-item-action">
+                                        <td>{{place.id}}</td>
+                                        <td>{{place.name}}</td>
+                                        <td>{{place.lng}}</td>
+                                        <td>{{place.lat}}</td>
+                                        <td>{{place.place_type_id}}</td>
+                                        <td>{{place.description}}</td>
+                                        <td>{{place.narrative_id}}</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <button class="btn btn-danger" type="button" (click)="deletePlace(place.id)">
+                                                    borrar                                                
+                                                </button>
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="card text-white bg-danger mb-3" style="width: max;">
+                    <div class="card-header">Agregar Punto de Interés</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Completa los siguientes datos</h5>
+                        <form #f="ngForm" (ngSubmit)="addPlace(f)" novalidate>
+                            <input name="title" ngModel required #first="ngModel">
+                            <input name="name" ngModel>
+                            <input name="last_name" ngModel>
+                            <input name="description" ngModel>
+                            <button>Submit</button>
+                        </form>
+                        <p></p>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Paradas</h4>
+                        <h1></h1>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>
+                                        ID
+                                    </th>
+                                    <th>
+                                        Nombre
+                                    </th>
+                                    <th>
+                                        Latitud
+                                    </th>
+                                    <th>
+                                        Longitud
+                                    </th>
+                                    <th>
+                                        Tour ID
+                                    </th>
+                                    <th>
+                                        Descripción
+                                    </th>
+                                    <th></th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let stop of arrayOfStops" class="list-group-item-action">
+                                        <td>{{stop.id}}</td>
+                                        <td>{{stop.name}}</td>
+                                        <td>{{stop.lng}}</td>
+                                        <td>{{stop.lat}}</td>
+                                        <td>{{stop.tour_id}}</td>
+                                        <td>{{stop.description}}</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <button class="btn btn-danger" type="button" (click)="deleteStop(stop.id)">
+                                                borrar
+                                                </button>
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="card text-white bg-danger mb-3" style="width: max;">
+                    <div class="card-header">Agregar Parada</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Completa los siguientes datos</h5>
+                        <form #f="ngForm" (ngSubmit)="addMural(f)" novalidate>
+                            <input name="title" ngModel required #first="ngModel">
+                            <input name="name" ngModel>
+                            <input name="last_name" ngModel>
+                            <input name="description" ngModel>
+                            <button>Submit</button>
+                        </form>
+                        <p></p>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

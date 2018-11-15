@@ -1,0 +1,128 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Murales</h4>
+                        <h4>
+                        </h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>
+                                        ID
+                                    </th>
+                                    <th>
+                                        Title
+                                    </th>
+                                    <th>
+                                        Author Name
+                                    </th>
+                                    <th>
+                                        Author Last Name
+                                    </th>
+                                    <th>
+                                        Description
+                                    </th>
+                                    <th></th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let mural of arrayOfmurals" class="list-group-item-action">
+                                        <td>{{mural.id}}</td>
+                                        <td>{{mural.title}}</td>
+                                        <td>{{mural.last_name}}</td>
+                                        <td>{{mural.name}}</td>
+                                        <td>{{mural.description}}</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <button class="btn btn-danger" type="button" (click)="deleteMural(mural.id)">
+                                                Borrar </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="card text-white bg-danger mb-3" style="width: max;">
+                    <div class="card-header">Agregar Mural</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Completa los siguientes datos</h5>
+                        <form #f="ngForm" (ngSubmit)="addMural(f)" novalidate>
+                            <input name="title" ngModel required #first="ngModel">
+                            <input name="name" ngModel>
+                            <input name="last_name" ngModel>
+                            <input name="description" ngModel>
+                            <button>Submit</button>
+                        </form>
+                        <p></p>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Murales</h4>
+                        <h4>
+                        </h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>
+                                        ID
+                                    </th>
+                                    <th>
+                                        Capacidad
+                                    </th>
+                                    <th>
+                                        Tour_ID
+                                    </th>
+                                    <th>
+                                        Mural_ID
+                                    </th>
+                                    <th></th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let bus of arrayOfBuses" class="list-group-item-action">
+                                        <td>{{bus.id}}</td>
+                                        <td>{{bus.capacity}}</td>
+                                        <td>{{bus.tour_id}}</td>
+                                        <td>{{bus.mural_id}}</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <button class="btn btn-danger" type="button" (click)="deleteBus(bus.id)">
+                                                    Borrar </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="card text-white bg-danger mb-3" style="width: max;">
+                    <div class="card-header">Agregar Bus</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Completa los siguientes datos</h5>
+                        <form #f="ngForm" (ngSubmit)="addMural(f)" novalidate>
+                            <input name="title" ngModel required #first="ngModel">
+                            <input name="name" ngModel>
+                            <input name="last_name" ngModel>
+                            <input name="description" ngModel>
+                            <button>Submit</button>
+                        </form>
+                        <p></p>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
