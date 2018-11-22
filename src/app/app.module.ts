@@ -7,7 +7,8 @@ import { UserService} from './services/user.service';
 import { MuralService } from './services/mural.service';
 import { PlaceService } from './services/place.service';
 import {BusService} from './services/bus.service';
-
+import {PurchaseService} from './services/purchase.service';
+import { LoginService } from './services/login.service';
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 
@@ -25,6 +26,8 @@ import { AgmCoreModule } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { HttpClientModule } from '@angular/common/http';
 import { StopService } from './services/stop.service';
+import { LoginComponent } from './login/login.component';
+import { PurchaseComponent } from './purchase/purchase.component';
 
 @NgModule({
   imports: [
@@ -42,9 +45,11 @@ import { StopService } from './services/stop.service';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
+    LoginComponent,
+    PurchaseComponent,
 
   ],
-  providers: [UserService, MuralService, PlaceService, StopService, BusService],
+  providers: [UserService, MuralService, PlaceService, StopService, BusService, LoginService, PurchaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

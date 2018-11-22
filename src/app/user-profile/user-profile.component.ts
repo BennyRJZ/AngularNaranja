@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PurchaseService } from '../services/purchase.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -7,9 +8,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserProfileComponent implements OnInit {
 
-  constructor() { }
+  public array = [];
+  public arrayOfPurchases = [];
+
+  constructor(private purchaseService: PurchaseService) { }
+
+  deletePurchase(id) {
+    if (confirm('Desea eliminar la compra?')){
+      this.purchaseService.deletePurchase(id).subscribe(data => {
+        this.fetch();
+      });
+    }
+  }
+
+  fetch() {
+    this.purchaseService.getPurchases()
+    .subscribe(res => {
+      this.arrayOfPurchases = res;
+      console.log(res);
+    });
+  }
 
   ngOnInit() {
+    this.fetch();
   }
 
 }
