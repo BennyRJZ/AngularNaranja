@@ -27,7 +27,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { HttpClientModule } from '@angular/common/http';
 import { StopService } from './services/stop.service';
 import { LoginComponent } from './login/login.component';
-import { PurchaseComponent } from './purchase/purchase.component';
+import { MarkerService } from './services/marker.service';
 
 @NgModule({
   imports: [
@@ -46,10 +46,8 @@ import { PurchaseComponent } from './purchase/purchase.component';
     AppComponent,
     AdminLayoutComponent,
     LoginComponent,
-    PurchaseComponent,
-
   ],
-  providers: [UserService, MuralService, PlaceService, StopService, BusService, LoginService, PurchaseService],
+  providers: [UserService, MuralService, PlaceService, StopService, BusService, LoginService, PurchaseService, MarkerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -142,6 +142,76 @@
                         <p></p>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header card-header-danger">
+                                <h4 class="card-title ">Marcadores de Ruta</h4>
+                                <h1></h1>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class=" text-primary">
+                                            <th>
+                                                MARKER ID
+                                            </th>
+                                            <th>
+                                                TOUR ID
+                                            </th>
+                                            <th>
+                                                Latitud
+                                            </th>
+                                            <th>
+                                                Longitud
+                                            </th>
+                                            <th>
+                                                Descripcion
+                                            </th>
+                                            <th>
+                                                Nombre
+                                            </th>
+                                            <th></th>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let marker of arrayOfMarkers" class="list-group-item-action">
+                                                <td>{{marker.id}}</td>
+                                                <td>{{marker.tour_id}}</td>
+                                                <td>{{marker.lat}}</td>
+                                                <td>{{marker.lng}}</td>
+                                                <td>{{marker.description}}</td>
+                                                <td>{{marker.name}}</td>
+                                                <td>
+                                                    <div class="btn-group">
+                                                        <button class="btn btn-danger" type="button" (click)="deleteMarker(marker.id)">
+                                                            borrar                                                
+                                                        </button>
+                                                    </div>
+
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card text-white bg-danger mb-3" style="width: max;">
+                            <div class="card-header">Agregar Marcador de Ruta</div>
+                            <div class="card-body">
+                                <h5 class="card-title">Completa los siguientes datos</h5>
+                                <form #f="ngForm" (ngSubmit)="addPlace(f)" novalidate>
+                                    <input name="title" ngModel required #first="ngModel">
+                                    <input name="name" ngModel>
+                                    <input name="last_name" ngModel>
+                                    <input name="description" ngModel>
+                                    <button>Submit</button>
+                                </form>
+                                <p></p>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

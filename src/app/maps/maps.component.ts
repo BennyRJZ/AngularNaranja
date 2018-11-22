@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PlaceService } from '../services/place.service';
 import { StopService } from 'app/services/stop.service';
+import { MarkerService } from 'app/services/marker.service';
 
 
 @Component({
@@ -14,9 +15,10 @@ export class MapsComponent implements OnInit {
   public array = [];
   public arrayOfPlaces = [];
   public arrayOfStops = [];
+  public arrayOfMarkers = [];
 
 
-  constructor(private placeService: PlaceService, private stopService: StopService) { }
+  constructor(private placeService: PlaceService, private stopService: StopService, private markerService: MarkerService) { }
   deletePlace(id) {
     if (confirm('Borrar punto de interes')){
       this.placeService.deletePlace(id).subscribe(data => {
@@ -31,6 +33,13 @@ export class MapsComponent implements OnInit {
       });
     }
   }
+  deleteMarker(id) {
+    if (confirm('Borrar marcador')){
+      this.markerService.deleteMarker(id).subscribe(data => {
+        this.gMarker();
+      });
+    }
+  }
   addPlace(id, name, lng, lat, place_type_id, description, narrative_id){
   this.placeService.addPlace(id, name, lng, lat, place_type_id, description, narrative_id).subscribe(data => {
     this.fetch();
@@ -41,6 +50,11 @@ export class MapsComponent implements OnInit {
       this.fetch();
     });
     }
+  addMarker(id, tour_id, lat, lng, description, name){
+      this.markerService.addMarker(id, tour_id, lat, lng, description, name).subscribe(data => {
+        this.gMarker();
+      });
+      }
   fetch() {
     this.placeService.getPlace()
     .subscribe(res => {
@@ -55,9 +69,18 @@ export class MapsComponent implements OnInit {
       console.log(res);
     });
   }
+  gMarker() {
+    this.markerService.getMarkers()
+    .subscribe(res => {
+      this.arrayOfMarkers = res;
+      console.log(res);
+    });
+  }
   ngOnInit() {
     this.fetch();
     this.obt();
+    this.gMarker();
+
   }
 
 }
