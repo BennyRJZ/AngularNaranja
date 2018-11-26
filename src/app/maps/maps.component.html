@@ -62,10 +62,12 @@
                     <div class="card-body">
                         <h5 class="card-title">Completa los siguientes datos</h5>
                         <form #f="ngForm" (ngSubmit)="addPlace(f)" novalidate>
-                            <input name="title" ngModel required #first="ngModel">
-                            <input name="name" ngModel>
-                            <input name="last_name" ngModel>
+                            <input name="name" ngModel required #first="ngModel">
+                            <input name="lng" ngModel>
+                            <input name="lat" ngModel>
+                            <input name="place_type_id" ngModel>
                             <input name="description" ngModel>
+                            <input name="narrative_id" ngModel>
                             <button>Submit</button>
                         </form>
                         <p></p>
@@ -132,9 +134,10 @@
                     <div class="card-body">
                         <h5 class="card-title">Completa los siguientes datos</h5>
                         <form #f="ngForm" (ngSubmit)="addStop(f)" novalidate>
-                            <input name="title" ngModel required #first="ngModel">
-                            <input name="name" ngModel>
-                            <input name="last_name" ngModel>
+                            <input name="name" ngModel required #first="ngModel">
+                            <input name="lat" ngModel>
+                            <input name="lng" ngModel>
+                            <input name="tour_id" ngModel>
                             <input name="description" ngModel>
                             <button>Submit</button>
                         </form>
@@ -203,6 +206,7 @@
                                     <input name="title" ngModel required #first="ngModel">
                                     <input name="name" ngModel>
                                     <input name="last_name" ngModel>
+                                    <input name="description" ngModel>
                                     <input name="description" ngModel>
                                     <button>Submit</button>
                                 </form>

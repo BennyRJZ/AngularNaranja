@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MuralService } from '../services/mural.service';
-import {NgForm} from '@angular/forms';
 import { BusService } from '../services/bus.service';
 
 @Component({
@@ -15,8 +14,14 @@ export class TypographyComponent implements OnInit {
   public array = [];
   public arrayOfmurals = [];
   public arrayOfBuses = [];
+  public currentBus = {};
 
   constructor(private muralService: MuralService, private busService: BusService) { }
+
+  ngOnInit() {
+    this.fetch();
+    this.obtB();
+  }
 
   deleteMural(id) {
     if (confirm('Borrar registro de mural?')){
@@ -37,11 +42,16 @@ export class TypographyComponent implements OnInit {
     this.fetch();
   });
   }
-  addBus(id, capacity, tour_id, mural_id){
-    this.busService.addBus(id, capacity, tour_id, mural_id).subscribe(data => {
-      this.obtB();
+  addBus(capacity, tour_id, mural_id){
+    this.busService.addBus(capacity, tour_id, mural_id).subscribe(data => {
+    this.obtB();
     });
     }
+  updateBus(id, capacity, tour_id, mural_id){
+      this.busService.updateBus(id, capacity, tour_id, mural_id).subscribe(data => {
+      this.obtB();
+      }, error => {alert('Error, verifica tus datos')});
+      }
   fetch() {
     this.muralService.getMural()
     .subscribe(res => {
@@ -52,14 +62,11 @@ export class TypographyComponent implements OnInit {
   obtB() {
     this.busService.getBus()
     .subscribe(res => {
-      this.arrayOfBuses = res;
       console.log(res);
+      this.arrayOfBuses = res;
     });
   }
-  ngOnInit() {
-    this.fetch();
-    this.obtB();
-  }
+  
 
 }
 

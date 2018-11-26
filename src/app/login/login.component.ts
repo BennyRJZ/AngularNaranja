@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
 
   }
   login(email: string, password: string){
-    event.preventDefault(); // Avoid default action for the submit button of the login form
+   event.preventDefault(); // Avoid default action for the submit button of the login form
     this.loginService.login(email, password).subscribe(
       res => {
         console.log(res);

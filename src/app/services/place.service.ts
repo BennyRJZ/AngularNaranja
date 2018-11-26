@@ -34,7 +34,7 @@ export class PlaceService {
       description: description,
       narrative_id: narrative_id
     };
-    return this.http.post<Places>('https://api-estrella-roja.appspot.com' + '/place' , obj);
+    return this.http.post<Places>('https://api-estrella-roja.appspot.com' + '/place', obj);
   }
 
   updatePlace(id, name, lng, lat, place_type_id, description, narrative_id): Observable<Places> {
