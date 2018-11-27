@@ -1,27 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../services/login.service';
+import {Router} from '@angular/router';
+
+
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
 })
 export class LoginComponent implements OnInit {
+  public array = [];
   public currentUser = [];
-
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService, private router: Router) { }
 
   ngOnInit() {
-
-    this.loginService.login('unit.testing@gmail.com', 'Unittesting1').subscribe(
-      res => {
-        console.log(res);
-    });
-
   }
   login(email, password){
     this.loginService.login(email, password).subscribe(data => {
-      console.log();
-    });
+    this.transferencia();
+  }, error => {alert('Error, verifica tus datos')});
+  }
+  transferencia(){
+    this.router.navigateByUrl('/dashboard');
+
   }
 }
 
@@ -36,6 +37,7 @@ SERVICE.
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import { DashboardComponent } from '../dashboard/dashboard.component';
 
 @Injectable()
 export class LoginService {
@@ -50,5 +52,10 @@ export class LoginService {
     });
   }
 }
+
+ this.loginService.login('unit.testing@gmail.com', 'Unittesting1').subscribe(
+      res => {
+      });
+
 
  */
