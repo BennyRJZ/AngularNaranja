@@ -82,7 +82,7 @@ export class TypographyComponent implements OnInit {
         this.obtT();
         }, error => {alert('Error, verifica tus datos')});
         }
-  // Metodos para obtener las tablas mural y autobus.
+  // Metodos para obtener las tablas mural y autobus. 
   fetch() {
     this.muralService.getMural()
     .subscribe(res => {

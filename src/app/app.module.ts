@@ -9,7 +9,6 @@ import { PlaceService } from './services/place.service';
 import {BusService} from './services/bus.service';
 import {PurchaseService} from './services/purchase.service';
 import { LoginService } from './services/login.service';
-import { ImageService } from './services/image.service';
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 
@@ -30,8 +29,6 @@ import { StopService } from './services/stop.service';
 import { LoginComponent } from './login/login.component';
 import { MarkerService } from './services/marker.service';
 import { TourService } from './services/tour.service';
-import { ImageComponent } from './image/image.component';
-import { AdminLayoutModule } from './layouts/admin-layout/admin-layout.module';
 
 
 @NgModule({
@@ -41,7 +38,6 @@ import { AdminLayoutModule } from './layouts/admin-layout/admin-layout.module';
     HttpModule,
     HttpClientModule,
     ComponentsModule,
-    AdminLayoutModule,
     RouterModule,
     AppRoutingModule,
     AgmCoreModule.forRoot({
@@ -52,7 +48,7 @@ import { AdminLayoutModule } from './layouts/admin-layout/admin-layout.module';
     AppComponent,
     AdminLayoutComponent
   ],
-  providers: [UserService, MuralService, PlaceService, StopService, BusService, LoginService, PurchaseService, MarkerService, TourService, ImageService],
+  providers: [UserService, MuralService, PlaceService, StopService, BusService, LoginService, PurchaseService, MarkerService, TourService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -3,7 +3,7 @@
 
     <div>
         <input type="text" placeholder="Email" [(ngModel)]="currentUser.email">
-        <input type="text" placeholder="Password" [(ngModel)]="currentUser.password">
+        <input type="password" placeholder="Password" [(ngModel)]="currentUser.password">
         <button class="btn btn-success" (click)="login(currentUser.email, currentUser.password)">Submit</button>
     </div>
 </div>

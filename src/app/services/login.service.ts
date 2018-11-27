@@ -7,7 +7,6 @@ import { Login } from '../interfaces/login';
 @Injectable()
 export class LoginService {
 
-  private_id: number;
   constructor(private http: HttpClient) {
   }
 
@@ -16,6 +15,6 @@ export class LoginService {
       email: email,
       password: password
     };
-    return this.http.post<Login>('http://api-estrella-roja.appspot.com/users' + '/login', obj);
+    return this.http.post<Login>('http://api-estrella-roja.appspot.com/users/login', obj);
 }
 }
