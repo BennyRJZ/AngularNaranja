@@ -29,6 +29,7 @@ import { StopService } from './services/stop.service';
 import { LoginComponent } from './login/login.component';
 import { MarkerService } from './services/marker.service';
 import { TourService } from './services/tour.service';
+import { ImageService } from './services/image.service';
 
 
 @NgModule({
@@ -48,7 +49,7 @@ import { TourService } from './services/tour.service';
     AppComponent,
     AdminLayoutComponent
   ],
-  providers: [UserService, MuralService, PlaceService, StopService, BusService, LoginService, PurchaseService, MarkerService, TourService],
+  providers: [UserService, MuralService, PlaceService, StopService, BusService, LoginService, PurchaseService, MarkerService, TourService, ImageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
