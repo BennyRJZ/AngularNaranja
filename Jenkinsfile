@@ -3,11 +3,14 @@ node 	{
 		checkout scm
 	}
 	stage('Build'){
-		npm install
-		ng build --progress false --prod --aot
+		sh 'npm install'
+		sh 'ng build --progress false --prod --aot'
+		sh 'tar -cvzf dist.tar.gz --strip-components=1 dist'
+		
+		archive 'dist.tar.gz'
 	}
 	stage('Test'){
-			ng test --progress false ---watch false
+			sh 'ng test --progress false ---watch false'
 		
 	}
 }
