@@ -46,8 +46,7 @@ import { TourService } from './services/tour.service';
   ],
   declarations: [
     AppComponent,
-    AdminLayoutComponent,
-    LoginComponent,
+    AdminLayoutComponent
   ],
   providers: [UserService, MuralService, PlaceService, StopService, BusService, LoginService, PurchaseService, MarkerService, TourService],
   bootstrap: [AppComponent]

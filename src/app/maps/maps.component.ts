@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { PlaceService } from '../services/place.service';
 import { StopService } from 'app/services/stop.service';
 import { MarkerService } from 'app/services/marker.service';
-import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-maps',
