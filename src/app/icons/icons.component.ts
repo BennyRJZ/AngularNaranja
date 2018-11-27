@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ImageService } from 'app/services/image.service';
 
+
 @Component({
   selector: 'app-icons',
   templateUrl: './icons.component.html',
@@ -10,6 +11,8 @@ export class IconsComponent implements OnInit {
 
   public array = [];
   public arrayOfImages = [];
+  public currentImage = [];
+
 
   constructor(private imageService: ImageService) { }
 
@@ -28,7 +31,16 @@ export class IconsComponent implements OnInit {
       console.log(res);
     });
   }
-
+  addImage(image_url, description){
+    this.imageService.addImage(image_url, description).subscribe(data => {
+      this.fetch();
+    });
+    }
+    updateImage(id, image_url, description){
+      this.imageService.updateImage(id, image_url, description).subscribe(data => {
+        this.fetch();
+      }, error => {alert('Error, verifica tus datos')});
+      }
   ngOnInit() {
     this.fetch();
   }
