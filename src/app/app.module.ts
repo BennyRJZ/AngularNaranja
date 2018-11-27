@@ -28,6 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { StopService } from './services/stop.service';
 import { LoginComponent } from './login/login.component';
 import { MarkerService } from './services/marker.service';
+import { TourService } from './services/tour.service';
+
 
 @NgModule({
   imports: [
@@ -47,7 +49,7 @@ import { MarkerService } from './services/marker.service';
     AdminLayoutComponent,
     LoginComponent,
   ],
-  providers: [UserService, MuralService, PlaceService, StopService, BusService, LoginService, PurchaseService, MarkerService],
+  providers: [UserService, MuralService, PlaceService, StopService, BusService, LoginService, PurchaseService, MarkerService, TourService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

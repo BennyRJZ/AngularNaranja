@@ -4,6 +4,73 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Tours</h4>
+                        <h4>
+                        </h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>
+                                        ID
+                                    </th>
+                                    <th>
+                                        Nombre
+                                    </th>
+                                    <th>
+                                        Imagen ID
+                                    </th>
+                                    <th>
+                                        Description
+                                    </th>
+                                    <th></th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let tour of arrayOfTours" class="list-group-item-action">
+                                        <td>{{tour.id}}</td>
+                                        <td>{{tour.name}}</td>
+                                        <td>{{tour.image_id}}</td>
+                                        <td>{{tour.description}}</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <button class="btn btn-danger" type="button" (click)="deleteTour(tour.id)">
+                                                        Borrar </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="card text-white bg-rose mb-3" style="width: max;">
+                    <div class="card-header">Agregar Tour</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Completa los siguientes datos</h5>
+                        <input type="text" placeholder="Nombre" [(ngModel)]="currentTour.name">
+                        <input type="text" placeholder="Imagen ID" [(ngModel)]="currentTour.image_id">
+                        <input type="text" placeholder="Descripción" [(ngModel)]="currentTour.description">
+                        <button class="btn btn-success" (click)="addTour(currentTour.name, currentTour.image_id, currentTour.description)">Submit</button>
+                    </div>
+                </div>
+                <div class="card text-white bg-primary mb-3" style="width: max;">
+                    <div class="card-header">Editar Tour</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Completa los siguientes datos</h5>
+                        <input type="text" placeholder="ID" [(ngModel)]="currentTour.id">
+                        <input type="text" placeholder="Nombre" [(ngModel)]="currentTour.name">
+                        <input type="text" placeholder="Imagen ID" [(ngModel)]="currentTour.image_id">
+                        <input type="text" placeholder="Descripción" [(ngModel)]="currentTour.description">
+                        <button class="btn btn-success" (click)="updateTour(currentTour.id, currentTour.name, currentTour.image_id, currentTour.description)">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
                         <h4 class="card-title ">Murales</h4>
                         <h4>
                         </h4>
