@@ -48,19 +48,27 @@
                         </div>
                     </div>
                 </div>
-                <div class="card text-white bg-danger mb-3" style="width: max;">
+                <div class="card text-white bg-rose mb-3" style="width: max;">
                     <div class="card-header">Agregar Mural</div>
                     <div class="card-body">
                         <h5 class="card-title">Completa los siguientes datos</h5>
-                        <form #f="ngForm" (ngSubmit)="addMural(f)" novalidate>
-                            <input name="title" ngModel required #first="ngModel">
-                            <input name="name" ngModel>
-                            <input name="last_name" ngModel>
-                            <input name="description" ngModel>
-                            <button>Submit</button>
-                        </form>
-                        <p></p>
-                        <p></p>
+                        <input type="text" placeholder="Título" [(ngModel)]="currentMural.title">
+                        <input type="text" placeholder="Nombre" [(ngModel)]="currentMural.name">
+                        <input type="text" placeholder="Apellido" [(ngModel)]="currentMural.lastname">
+                        <input type="text" placeholder="Descripción" [(ngModel)]="currentMural.description">
+                        <button class="btn btn-success" (click)="addMural(currentMural.title, currentMural.name, currentMural.lastname ,currentMural.description)">Submit</button>
+                    </div>
+                </div>
+                <div class="card text-white bg-primary mb-3" style="width: max;">
+                    <div class="card-header">Editar Mural</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Completa los siguientes datos</h5>
+                        <input type="text" placeholder="ID" [(ngModel)]="currentMural.id">
+                        <input type="text" placeholder="Título" [(ngModel)]="currentMural.title">
+                        <input type="text" placeholder="Nombre" [(ngModel)]="currentMural.name">
+                        <input type="text" placeholder="Apellido" [(ngModel)]="currentMural.lastname">
+                        <input type="text" placeholder="Descripción" [(ngModel)]="currentMural.description">
+                        <button class="btn btn-success" (click)="updateMural(currentMural.id, currentMural.title, currentMural.name, currentMural.lastname ,currentMural.description)">Submit</button>
                     </div>
                 </div>
             </div>
@@ -109,14 +117,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="card text-white bg-danger mb-3" style="width: max;">
+                <div class="card text-white bg-rose mb-3" style="width: max;">
                     <div class="card-header">Agregar Bus</div>
                     <div class="card-body">
                         <h5 class="card-title">Completa los siguientes datos</h5>
-                        <input type="number" [(ngModel)]="currentBus.capacity">
-                        <input type="number" [(ngModel)]="currentBus.tour_id">
-                        <input type="number" [(ngModel)]="currentBus.mural_id">
-                        <button (click)="addBus(currentBus.capacity,currentBus.tour_id,currentBus.mural_id)">Submit</button>
+                        <input type="number" placeholder="Capacidad" [(ngModel)]="currentBus.capacity">
+                        <input type="number" placeholder="Tour ID" [(ngModel)]="currentBus.tour_id">
+                        <input type="number" placeholder="Mural ID" [(ngModel)]="currentBus.mural_id">
+                        <button class="btn btn-success" (click)="addBus(currentBus.capacity,currentBus.tour_id,currentBus.mural_id)">Submit</button>
                     </div>
                 </div>
                 <div class="card text-white bg-primary mb-3" style="width: max;">
@@ -127,7 +135,7 @@
                         <input type="number" placeholder="Capacidad" [(ngModel)]="currentBus.capacity">
                         <input type="number" placeholder="Tour ID" [(ngModel)]="currentBus.tour_id">
                         <input type="number" placeholder="Mural ID" [(ngModel)]="currentBus.mural_id">
-                        <button (click)="updateBus(currentBus.id, currentBus.capacity,currentBus.tour_id,currentBus.mural_id)">Submit</button>
+                        <button class="btn btn-success" (click)="updateBus(currentBus.id, currentBus.capacity,currentBus.tour_id,currentBus.mural_id)">Submit</button>
                     </div>
                 </div>
             </div>

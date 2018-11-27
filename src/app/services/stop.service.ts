@@ -24,9 +24,8 @@ export class StopService {
     return this.http.get<Stop>('https://api-estrella-roja.appspot.com' + '/stop' + '/' + id);
   }
 
-  addStop(id, name, lng, lat, tour_id, description): Observable<Stop> {
+  addStop(name, lng, lat, tour_id, description): Observable<Stop> {
     const obj = {
-      id: id,
       name: name,
       lng: lng,
       lat: lat,

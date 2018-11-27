@@ -24,9 +24,8 @@ export class PlaceService {
     return this.http.get<Places>('https://api-estrella-roja.appspot.com' + '/place' + '/' + id);
   }
 
-  addPlace(id, name, lng, lat, place_type_id, description, narrative_id): Observable<Places> {
+  addPlace(name, lng, lat, place_type_id, description, narrative_id): Observable<Places> {
     const obj = {
-      id: id,
       name: name,
       lng: lng,
       lat: lat,
