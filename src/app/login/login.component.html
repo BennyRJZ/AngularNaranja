@@ -1,9 +1,9 @@
 <div class="container">
     <h1>Iniciar sesión</h1>
 
-    <form class="form">
-        <input type="text" #email name="username" placeholder="Username">
-        <input type="password" #password name="password" placeholder="Password">
-        <button type="submit" (click)="login(email.user, password.user, $event)" id="login-button">Login</button>
-    </form>
+    <div>
+        <input type="text" placeholder="Email" [(ngModel)]="currentUser.email">
+        <input type="text" placeholder="Password" [(ngModel)]="currentUser.password">
+        <button class="btn btn-success" (click)="login(currentUser.email, currentUser.password)">Submit</button>
+    </div>
 </div>

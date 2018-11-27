@@ -61,13 +61,29 @@
                     <div class="card-header">Agregar Punto de Interés</div>
                     <div class="card-body">
                         <h5 class="card-title">Completa los siguientes datos</h5>
-                        <form #f="ngForm" (ngSubmit)="addPlace(f)" novalidate>
-                            <input name="title" ngModel required #first="ngModel">
-                            <input name="name" ngModel>
-                            <input name="last_name" ngModel>
-                            <input name="description" ngModel>
-                            <button>Submit</button>
-                        </form>
+                        <input type="text" placeholder="Nombre del Punto" [(ngModel)]="currentPlace.name">
+                        <input type="number" placeholder="Longitud" [(ngModel)]="currentPlace.lng">
+                        <input type="number" placeholder="Latitud" [(ngModel)]="currentPlace.lat">
+                        <input type="number" placeholder="Place Type ID" [(ngModel)]="currentPlace.place_type_id">
+                        <input type="text" placeholder="Descripción" [(ngModel)]="currentPlace.description">
+                        <input type="number" placeholder="Narrativa" [(ngModel)]="currentPlace.narrative_id">
+                        <button class="btn btn-success" (click)="addPlace(currentPlace.name, currentPlace.lng, currentPlace.lat, currentPlace.place_type_id, currentPlace.description, currentPlace.narrative_id)">Submit</button>
+                        <p></p>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="card text-white bg-primary mb-3" style="width: max;">
+                    <div class="card-header">Editar Punto de Interés</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Completa los siguientes datos</h5>
+                        <input type="number" placeholder="ID del Punto" [(ngModel)]="currentPlace.id">
+                        <input type="text" placeholder="Nombre del Punto" [(ngModel)]="currentPlace.name">
+                        <input type="number" placeholder="Longitud" [(ngModel)]="currentPlace.lng">
+                        <input type="number" placeholder="Latitud" [(ngModel)]="currentPlace.lat">
+                        <input type="number" placeholder="Place Type ID" [(ngModel)]="currentPlace.place_type_id">
+                        <input type="text" placeholder="Descripción" [(ngModel)]="currentPlace.description">
+                        <input type="number" placeholder="Narrativa" [(ngModel)]="currentPlace.narrative_id">
+                        <button class="btn btn-success" (click)="updatePlace(currentPlace.id, currentPlace.name, currentPlace.lng, currentPlace.lat, currentPlace.place_type_id, currentPlace.description, currentPlace.narrative_id)">Submit</button>
                         <p></p>
                         <p></p>
                     </div>
@@ -131,13 +147,27 @@
                     <div class="card-header">Agregar Parada</div>
                     <div class="card-body">
                         <h5 class="card-title">Completa los siguientes datos</h5>
-                        <form #f="ngForm" (ngSubmit)="addStop(f)" novalidate>
-                            <input name="title" ngModel required #first="ngModel">
-                            <input name="name" ngModel>
-                            <input name="last_name" ngModel>
-                            <input name="description" ngModel>
-                            <button>Submit</button>
-                        </form>
+                        <input type="text" placeholder="Nombre de la Parada" [(ngModel)]="currentStop.name">
+                        <input type="number" placeholder="Longitud" [(ngModel)]="currentStop.lng">
+                        <input type="number" placeholder="Latitud" [(ngModel)]="currentStop.lat">
+                        <input type="number" placeholder="Tour ID" [(ngModel)]="currentStop.tour_id">
+                        <input type="text" placeholder="Descripción" [(ngModel)]="currentStop.description">
+                        <button class="btn btn-success" (click)="addStop(currentStop.name, currentStop.lng, currentStop.lat, currentStop.tour_id, currentStop.description)">Submit</button>
+                        <p></p>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="card text-white bg-primary mb-3" style="width: max;">
+                    <div class="card-header">Editar Parada</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Completa los siguientes datos</h5>
+                        <input type="text" placeholder="ID de la Parada" [(ngModel)]="currentStop.id">
+                        <input type="text" placeholder="Nombre de la Parada" [(ngModel)]="currentStop.name">
+                        <input type="number" placeholder="Longitud" [(ngModel)]="currentStop.lng">
+                        <input type="number" placeholder="Latitud" [(ngModel)]="currentPlace.lat">
+                        <input type="number" placeholder="Tour ID" [(ngModel)]="currentStop.tour_id">
+                        <input type="text" placeholder="Descripción" [(ngModel)]="currentStop.description">
+                        <button class="btn btn-success" (click)="updateStop(currentStop.id, currentStop.name, currentStop.lng, currentStop.lat, currentStop.tour_id, currentStop.description)">Submit</button>
                         <p></p>
                         <p></p>
                     </div>
@@ -154,10 +184,13 @@
                                     <table class="table">
                                         <thead class=" text-primary">
                                             <th>
-                                                MARKER ID
+                                                Marcador ID
                                             </th>
                                             <th>
-                                                TOUR ID
+                                                Nombre del Marcador
+                                            </th>
+                                            <th>
+                                                Tour ID
                                             </th>
                                             <th>
                                                 Latitud
@@ -168,19 +201,16 @@
                                             <th>
                                                 Descripcion
                                             </th>
-                                            <th>
-                                                Nombre
-                                            </th>
                                             <th></th>
                                         </thead>
                                         <tbody>
                                             <tr *ngFor="let marker of arrayOfMarkers" class="list-group-item-action">
                                                 <td>{{marker.id}}</td>
+                                                <td>{{marker.name}}</td>
                                                 <td>{{marker.tour_id}}</td>
                                                 <td>{{marker.lat}}</td>
                                                 <td>{{marker.lng}}</td>
                                                 <td>{{marker.description}}</td>
-                                                <td>{{marker.name}}</td>
                                                 <td>
                                                     <div class="btn-group">
                                                         <button class="btn btn-danger" type="button" (click)="deleteMarker(marker.id)">
@@ -196,16 +226,30 @@
                             </div>
                         </div>
                         <div class="card text-white bg-danger mb-3" style="width: max;">
-                            <div class="card-header">Agregar Marcador de Ruta</div>
+                            <div class="card-header">Agregar Marcador de Ruta.</div>
                             <div class="card-body">
                                 <h5 class="card-title">Completa los siguientes datos</h5>
-                                <form #f="ngForm" (ngSubmit)="addPlace(f)" novalidate>
-                                    <input name="title" ngModel required #first="ngModel">
-                                    <input name="name" ngModel>
-                                    <input name="last_name" ngModel>
-                                    <input name="description" ngModel>
-                                    <button>Submit</button>
-                                </form>
+                                <input type="text" placeholder="Nombre del Marcador" [(ngModel)]="currentMarker.name">
+                                <input type="number" placeholder="Tour ID" [(ngModel)]="currentMarker.tour_id">
+                                <input type="number" placeholder="Latitud" [(ngModel)]="currentMarker.lat">
+                                <input type="number" placeholder="Longitud" [(ngModel)]="currentMarker.lng">
+                                <input type="text" placeholder="Descripción" [(ngModel)]="currentMarker.description">
+                                <button class="btn btn-success" (click)="addMarker(currentMarker.name, currentMarker.tour_id, currentMarker.lat, currentMarker.lng, currentMarker.description)">Submit</button>
+                                <p></p>
+                                <p></p>
+                            </div>
+                        </div>
+                        <div class="card text-white bg-primary mb-3" style="width: max;">
+                            <div class="card-header">Editar Marcador de Ruta</div>
+                            <div class="card-body">
+                                <h5 class="card-title">Completa los siguientes datos</h5>
+                                <input type="number" placeholder="ID del Marcador" [(ngModel)]="currentMarker.id">
+                                <input type="number" placeholder="Tour ID" [(ngModel)]="currentMarker.tour_id">
+                                <input type="number" placeholder="Latitud" [(ngModel)]="currentMarker.lat">
+                                <input type="number" placeholder="Longitud" [(ngModel)]="currentMarker.lng">
+                                <input type="text" placeholder="Descripción" [(ngModel)]="currentMarker.description">
+                                <input type="text" placeholder="Nombre del Marcador" [(ngModel)]="currentMarker.name">
+                                <button class="btn btn-success" (click)="updateMarker(currentMarker.id, currentMarker.tour_id, currentMarker.lat, currentMarker.lng, currentMarker.description, currentMarker.name)">Submit</button>
                                 <p></p>
                                 <p></p>
                             </div>

@@ -24,17 +24,17 @@ export class BusService {
     return this.http.get<Bus>('https://api-estrella-roja.appspot.com' + '/bus' + '/' + id);
   }
 
-  addBus(id, capacity, tour_id, mural_id): Observable<Bus> {
+  addBus(capacity, tour_id, mural_id): Observable<Bus> {
+    console.log(capacity, tour_id, mural_id);
     const obj = {
-      id: id,
       capacity: capacity,
       tour_id: tour_id,
       mural_id: mural_id
     };
-    return this.http.post<Bus>('https://api-estrella-roja.appspot.com' + '/bus' , obj);
+    return this.http.post<Bus>('https://api-estrella-roja.appspot.com/' + 'bus' , obj);
   }
 
-  updateStop(id, capacity, tour_id, mural_id): Observable<Bus> {
+  updateBus(id, capacity, tour_id, mural_id): Observable<Bus> {
     const obj = {
       id: id,
       capacity: capacity,

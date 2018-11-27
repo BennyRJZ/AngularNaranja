@@ -24,19 +24,18 @@ export class MarkerService {
     return this.http.get<Marker>('https://api-estrella-roja.appspot.com' + '/markers' + '/' + id);
   }
 
-  addMarker(id, tour_id, lat, lng, description, name): Observable<Marker> {
+  addMarker(name, tour_id, lat, lng, description): Observable<Marker> {
     const obj = {
-      id: id,
+      name: name,
       tour_id: tour_id,
       lat: lat,
       lng: lng,
       description: description,
-      name: name
     };
     return this.http.post<Marker>('https://api-estrella-roja.appspot.com' + '/markers' , obj);
   }
 
-  updatePlace(id, tour_id, lat, lng, description, name): Observable<Marker> {
+  updateMarker(id, tour_id, lat, lng, description, name): Observable<Marker> {
     const obj = {
       id: id,
       tour_id: tour_id,
@@ -45,7 +44,7 @@ export class MarkerService {
       description: description,
       name: name
     };
-    return this.http.put<Marker>('https://api-estrella-roja.appspot.com' + '/marker' + '/' + id, obj);
+    return this.http.put<Marker>('https://api-estrella-roja.appspot.com' + '/markers' + '/' + id, obj);
   }
 
 
