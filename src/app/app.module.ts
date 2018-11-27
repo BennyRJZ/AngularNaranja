@@ -29,6 +29,8 @@ import { StopService } from './services/stop.service';
 import { LoginComponent } from './login/login.component';
 import { MarkerService } from './services/marker.service';
 import { TourService } from './services/tour.service';
+import { ImageComponent } from './image/image.component';
+import { AdminLayoutModule } from './layouts/admin-layout/admin-layout.module';
 
 
 @NgModule({
