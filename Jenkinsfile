@@ -3,6 +3,7 @@ node 	{
 		checkout scm
 	}
 	stage('Build'){
+		sh 'npm install'
 		sh 'ng build --progress false --prod --aot'
 		sh 'tar -cvzf dist.tar.gz --strip-components=1 dist'
 		
