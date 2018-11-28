@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../services/login.service';
 import {Router} from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 
 
@@ -18,12 +19,17 @@ export class LoginComponent implements OnInit {
   login(email, password){
     this.loginService.login(email, password).subscribe(data => {
     this.transferencia();
-  });
-  }
-  transferencia(){
+    },
+    (err: HttpErrorResponse) => {
+      if (err.status === 200) {
+        this.transferencia();
+      }
+    }
+    );
+    }
+  transferencia() {
     this.router.navigateByUrl('/dashboard');
-
   }
-}
+
 
 // , error => {alert('Error, verifica tus datos')}
