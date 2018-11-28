@@ -13,11 +13,8 @@ export const ROUTES: RouteInfo[] = [
     { path: '/table-list', title: 'Usuarios Registrados',  icon:'perm_identity', class: '' },
     { path: '/typography', title: 'Admón. de Tours',  icon:'toys', class: '' },
     { path: '/user-profile', title: 'Ventas',  icon:'local_atm', class: '' },
-    { path: '/icons', title: 'Icons',  icon:'bubble_chart', class: '' },
-    { path: '/notifications', title: 'Notifications',  icon:'notifications', class: '' },
-    { path: '/login', title: 'Login',  icon:'account_circle', class: '' },
-
-
+    { path: '/icons', title: 'Recursos',  icon:'bubble_chart', class: '' },
+    { path: '/notifications', title: 'Notifications',  icon:'notifications', class: '' }
 
 ];
 

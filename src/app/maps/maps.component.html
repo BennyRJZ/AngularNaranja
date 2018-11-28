@@ -1,262 +1,314 @@
 <div class="main-content">
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header card-header-danger">
-                        <h4 class="card-title ">Puntos de Interés</h4>
-                        <h1></h1>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead class=" text-primary">
-                                    <th>
-                                        ID
-                                    </th>
-                                    <th>
-                                        Nombre
-                                    </th>
-                                    <th>
-                                        Longitud
-                                    </th>
-                                    <th>
-                                        Latitud
-                                    </th>
-                                    <th>
-                                        Place Type ID
-                                    </th>
-                                    <th>
-                                        Descripcion
-                                    </th>
-                                    <th>
-                                        Narrativa
-                                    </th>
-                                    <th></th>
-                                </thead>
-                                <tbody>
-                                    <tr *ngFor="let place of arrayOfPlaces" class="list-group-item-action">
-                                        <td>{{place.id}}</td>
-                                        <td>{{place.name}}</td>
-                                        <td>{{place.lng}}</td>
-                                        <td>{{place.lat}}</td>
-                                        <td>{{place.place_type_id}}</td>
-                                        <td>{{place.description}}</td>
-                                        <td>{{place.narrative_id}}</td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <button class="btn btn-danger" type="button" (click)="deletePlace(place.id)">
-                                                    borrar                                                
-                                                </button>
-                                            </div>
-
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <div class="card text-white bg-danger mb-3" style="width: max;">
-                    <div class="card-header">Agregar Punto de Interés</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Completa los siguientes datos</h5>
-                        <input type="text" placeholder="Nombre del Punto" [(ngModel)]="currentPlace.name">
-                        <input type="number" placeholder="Longitud" [(ngModel)]="currentPlace.lng">
-                        <input type="number" placeholder="Latitud" [(ngModel)]="currentPlace.lat">
-                        <input type="number" placeholder="Place Type ID" [(ngModel)]="currentPlace.place_type_id">
-                        <input type="text" placeholder="Descripción" [(ngModel)]="currentPlace.description">
-                        <input type="number" placeholder="Narrativa" [(ngModel)]="currentPlace.narrative_id">
-                        <button class="btn btn-success" (click)="addPlace(currentPlace.name, currentPlace.lng, currentPlace.lat, currentPlace.place_type_id, currentPlace.description, currentPlace.narrative_id)">Submit</button>
-                        <p></p>
-                        <p></p>
-                    </div>
-                </div>
-                <div class="card text-white bg-primary mb-3" style="width: max;">
-                    <div class="card-header">Editar Punto de Interés</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Completa los siguientes datos</h5>
-                        <input type="number" placeholder="ID del Punto" [(ngModel)]="currentPlace.id">
-                        <input type="text" placeholder="Nombre del Punto" [(ngModel)]="currentPlace.name">
-                        <input type="number" placeholder="Longitud" [(ngModel)]="currentPlace.lng">
-                        <input type="number" placeholder="Latitud" [(ngModel)]="currentPlace.lat">
-                        <input type="number" placeholder="Place Type ID" [(ngModel)]="currentPlace.place_type_id">
-                        <input type="text" placeholder="Descripción" [(ngModel)]="currentPlace.description">
-                        <input type="number" placeholder="Narrativa" [(ngModel)]="currentPlace.narrative_id">
-                        <button class="btn btn-success" (click)="updatePlace(currentPlace.id, currentPlace.name, currentPlace.lng, currentPlace.lat, currentPlace.place_type_id, currentPlace.description, currentPlace.narrative_id)">Submit</button>
-                        <p></p>
-                        <p></p>
+        <div class="card">
+            <div class="card-header card-header-tabs card-header-success">
+                <div class="nav-tabs-navigation">
+                    <div class="nav-tabs-wrapper">
+                        <span class="nav-tabs-title">Opciones:</span>
+                        <ul class="nav nav-tabs" data-tabs="tabs">
+                            <li class="nav-item">
+                                <a mat-button class="nav-link active" href="#profile" data-toggle="tab">
+                                    <i class="material-icons">grade</i> Puntos de Interés
+                                    <div class="ripple-container"></div>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a mat-button class="nav-link" href="#messages" data-toggle="tab">
+                                    <i class="material-icons">chat_bubble_outline</i> Paradas
+                                    <div class="ripple-container"></div>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a mat-button class="nav-link" href="#settings" data-toggle="tab">
+                                    <i class="material-icons">commute</i> Marcadores de Ruta
+                                    <div class="ripple-container"></div>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header card-header-danger">
-                        <h4 class="card-title ">Paradas</h4>
-                        <h1></h1>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead class=" text-primary">
-                                    <th>
-                                        ID
-                                    </th>
-                                    <th>
-                                        Nombre
-                                    </th>
-                                    <th>
-                                        Latitud
-                                    </th>
-                                    <th>
-                                        Longitud
-                                    </th>
-                                    <th>
-                                        Tour ID
-                                    </th>
-                                    <th>
-                                        Descripción
-                                    </th>
-                                    <th></th>
-                                </thead>
-                                <tbody>
-                                    <tr *ngFor="let stop of arrayOfStops" class="list-group-item-action">
-                                        <td>{{stop.id}}</td>
-                                        <td>{{stop.name}}</td>
-                                        <td>{{stop.lng}}</td>
-                                        <td>{{stop.lat}}</td>
-                                        <td>{{stop.tour_id}}</td>
-                                        <td>{{stop.description}}</td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <button class="btn btn-danger" type="button" (click)="deleteStop(stop.id)">
-                                                borrar
-                                                </button>
+            <div class="card-body">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="profile">
+                        <table class="table">
+                            <tbody>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="card">
+                                            <div class="card-header card-header-danger">
+                                                <h4 class="card-title ">Puntos de Interés</h4>
+                                                <h1></h1>
                                             </div>
+                                            <div class="card-body">
+                                                <div class="table-responsive">
+                                                    <table class="table">
+                                                        <thead class=" text-primary">
+                                                            <th>
+                                                                ID
+                                                            </th>
+                                                            <th>
+                                                                Nombre
+                                                            </th>
+                                                            <th>
+                                                                Longitud
+                                                            </th>
+                                                            <th>
+                                                                Latitud
+                                                            </th>
+                                                            <th>
+                                                                Place Type ID
+                                                            </th>
+                                                            <th>
+                                                                Descripcion
+                                                            </th>
+                                                            <th>
+                                                                Narrativa
+                                                            </th>
+                                                            <th></th>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr *ngFor="let place of arrayOfPlaces" class="list-group-item-action">
+                                                                <td>{{place.id}}</td>
+                                                                <td>{{place.name}}</td>
+                                                                <td>{{place.lng}}</td>
+                                                                <td>{{place.lat}}</td>
+                                                                <td>{{place.place_type_id}}</td>
+                                                                <td>{{place.description}}</td>
+                                                                <td>{{place.narrative_id}}</td>
+                                                                <td>
+                                                                    <div class="btn-group">
+                                                                        <button class="btn btn-danger" type="button" (click)="deletePlace(place.id)">
+                                                                                                borrar                                                
+                                                                                            </button>
+                                                                    </div>
 
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <div class="card text-white bg-danger mb-3" style="width: max;">
-                    <div class="card-header">Agregar Parada</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Completa los siguientes datos</h5>
-                        <input type="text" placeholder="Nombre de la Parada" [(ngModel)]="currentStop.name">
-                        <input type="number" placeholder="Longitud" [(ngModel)]="currentStop.lng">
-                        <input type="number" placeholder="Latitud" [(ngModel)]="currentStop.lat">
-                        <input type="number" placeholder="Tour ID" [(ngModel)]="currentStop.tour_id">
-                        <input type="text" placeholder="Descripción" [(ngModel)]="currentStop.description">
-                        <button class="btn btn-success" (click)="addStop(currentStop.name, currentStop.lng, currentStop.lat, currentStop.tour_id, currentStop.description)">Submit</button>
-                        <p></p>
-                        <p></p>
-                    </div>
-                </div>
-                <div class="card text-white bg-primary mb-3" style="width: max;">
-                    <div class="card-header">Editar Parada</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Completa los siguientes datos</h5>
-                        <input type="text" placeholder="ID de la Parada" [(ngModel)]="currentStop.id">
-                        <input type="text" placeholder="Nombre de la Parada" [(ngModel)]="currentStop.name">
-                        <input type="number" placeholder="Longitud" [(ngModel)]="currentStop.lng">
-                        <input type="number" placeholder="Latitud" [(ngModel)]="currentPlace.lat">
-                        <input type="number" placeholder="Tour ID" [(ngModel)]="currentStop.tour_id">
-                        <input type="text" placeholder="Descripción" [(ngModel)]="currentStop.description">
-                        <button class="btn btn-success" (click)="updateStop(currentStop.id, currentStop.name, currentStop.lng, currentStop.lat, currentStop.tour_id, currentStop.description)">Submit</button>
-                        <p></p>
-                        <p></p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-header card-header-danger">
-                                <h4 class="card-title ">Marcadores de Ruta</h4>
-                                <h1></h1>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead class=" text-primary">
-                                            <th>
-                                                Marcador ID
-                                            </th>
-                                            <th>
-                                                Nombre del Marcador
-                                            </th>
-                                            <th>
-                                                Tour ID
-                                            </th>
-                                            <th>
-                                                Latitud
-                                            </th>
-                                            <th>
-                                                Longitud
-                                            </th>
-                                            <th>
-                                                Descripcion
-                                            </th>
-                                            <th></th>
-                                        </thead>
-                                        <tbody>
-                                            <tr *ngFor="let marker of arrayOfMarkers" class="list-group-item-action">
-                                                <td>{{marker.id}}</td>
-                                                <td>{{marker.name}}</td>
-                                                <td>{{marker.tour_id}}</td>
-                                                <td>{{marker.lat}}</td>
-                                                <td>{{marker.lng}}</td>
-                                                <td>{{marker.description}}</td>
-                                                <td>
-                                                    <div class="btn-group">
-                                                        <button class="btn btn-danger" type="button" (click)="deleteMarker(marker.id)">
-                                                            borrar                                                
-                                                        </button>
-                                                    </div>
-
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card text-white bg-rose mb-3" style="width: max;">
+                                            <div class="card-header">Agregar Punto de Interés</div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">Completa los siguientes datos</h5>
+                                                <input type="text" placeholder="Nombre del Punto" [(ngModel)]="currentPlace.name">
+                                                <input type="number" placeholder="Longitud" [(ngModel)]="currentPlace.lng">
+                                                <input type="number" placeholder="Latitud" [(ngModel)]="currentPlace.lat">
+                                                <input type="number" placeholder="Place Type ID" [(ngModel)]="currentPlace.place_type_id">
+                                                <input type="text" placeholder="Descripción" [(ngModel)]="currentPlace.description">
+                                                <input type="number" placeholder="Narrativa" [(ngModel)]="currentPlace.narrative_id">
+                                                <button class="btn btn-success" (click)="addPlace(currentPlace.name, currentPlace.lng, currentPlace.lat, currentPlace.place_type_id, currentPlace.description, currentPlace.narrative_id)">Submit</button>
+                                                <p></p>
+                                                <p></p>
+                                            </div>
+                                        </div>
+                                        <div class="card text-white bg-primary mb-3" style="width: max;">
+                                            <div class="card-header">Editar Punto de Interés</div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">Completa los siguientes datos</h5>
+                                                <input type="number" placeholder="ID del Punto" [(ngModel)]="currentPlace.id">
+                                                <input type="text" placeholder="Nombre del Punto" [(ngModel)]="currentPlace.name">
+                                                <input type="number" placeholder="Longitud" [(ngModel)]="currentPlace.lng">
+                                                <input type="number" placeholder="Latitud" [(ngModel)]="currentPlace.lat">
+                                                <input type="number" placeholder="Place Type ID" [(ngModel)]="currentPlace.place_type_id">
+                                                <input type="text" placeholder="Descripción" [(ngModel)]="currentPlace.description">
+                                                <input type="number" placeholder="Narrativa" [(ngModel)]="currentPlace.narrative_id">
+                                                <button class="btn btn-success" (click)="updatePlace(currentPlace.id, currentPlace.name, currentPlace.lng, currentPlace.lat, currentPlace.place_type_id, currentPlace.description, currentPlace.narrative_id)">Submit</button>
+                                                <p></p>
+                                                <p></p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="card text-white bg-danger mb-3" style="width: max;">
-                            <div class="card-header">Agregar Marcador de Ruta.</div>
-                            <div class="card-body">
-                                <h5 class="card-title">Completa los siguientes datos</h5>
-                                <input type="text" placeholder="Nombre del Marcador" [(ngModel)]="currentMarker.name">
-                                <input type="number" placeholder="Tour ID" [(ngModel)]="currentMarker.tour_id">
-                                <input type="number" placeholder="Latitud" [(ngModel)]="currentMarker.lat">
-                                <input type="number" placeholder="Longitud" [(ngModel)]="currentMarker.lng">
-                                <input type="text" placeholder="Descripción" [(ngModel)]="currentMarker.description">
-                                <button class="btn btn-success" (click)="addMarker(currentMarker.name, currentMarker.tour_id, currentMarker.lat, currentMarker.lng, currentMarker.description)">Submit</button>
-                                <p></p>
-                                <p></p>
-                            </div>
-                        </div>
-                        <div class="card text-white bg-primary mb-3" style="width: max;">
-                            <div class="card-header">Editar Marcador de Ruta</div>
-                            <div class="card-body">
-                                <h5 class="card-title">Completa los siguientes datos</h5>
-                                <input type="number" placeholder="ID del Marcador" [(ngModel)]="currentMarker.id">
-                                <input type="number" placeholder="Tour ID" [(ngModel)]="currentMarker.tour_id">
-                                <input type="number" placeholder="Latitud" [(ngModel)]="currentMarker.lat">
-                                <input type="number" placeholder="Longitud" [(ngModel)]="currentMarker.lng">
-                                <input type="text" placeholder="Descripción" [(ngModel)]="currentMarker.description">
-                                <input type="text" placeholder="Nombre del Marcador" [(ngModel)]="currentMarker.name">
-                                <button class="btn btn-success" (click)="updateMarker(currentMarker.id, currentMarker.tour_id, currentMarker.lat, currentMarker.lng, currentMarker.description, currentMarker.name)">Submit</button>
-                                <p></p>
-                                <p></p>
-                            </div>
-                        </div>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="tab-pane" id="messages">
+                        <table class="table">
+                            <tbody>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="card">
+                                            <div class="card-header card-header-danger">
+                                                <h4 class="card-title ">Paradas</h4>
+                                                <h1></h1>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="table-responsive">
+                                                    <table class="table">
+                                                        <thead class=" text-primary">
+                                                            <th>
+                                                                ID
+                                                            </th>
+                                                            <th>
+                                                                Nombre
+                                                            </th>
+                                                            <th>
+                                                                Latitud
+                                                            </th>
+                                                            <th>
+                                                                Longitud
+                                                            </th>
+                                                            <th>
+                                                                Tour ID
+                                                            </th>
+                                                            <th>
+                                                                Descripción
+                                                            </th>
+                                                            <th></th>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr *ngFor="let stop of arrayOfStops" class="list-group-item-action">
+                                                                <td>{{stop.id}}</td>
+                                                                <td>{{stop.name}}</td>
+                                                                <td>{{stop.lng}}</td>
+                                                                <td>{{stop.lat}}</td>
+                                                                <td>{{stop.tour_id}}</td>
+                                                                <td>{{stop.description}}</td>
+                                                                <td>
+                                                                    <div class="btn-group">
+                                                                        <button class="btn btn-danger" type="button" (click)="deleteStop(stop.id)">
+                                                                                borrar
+                                                                                </button>
+                                                                    </div>
+
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card text-white bg-rose mb-3" style="width: max;">
+                                            <div class="card-header">Agregar Parada</div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">Completa los siguientes datos</h5>
+                                                <input type="text" placeholder="Nombre de la Parada" [(ngModel)]="currentStop.name">
+                                                <input type="number" placeholder="Longitud" [(ngModel)]="currentStop.lng">
+                                                <input type="number" placeholder="Latitud" [(ngModel)]="currentStop.lat">
+                                                <input type="number" placeholder="Tour ID" [(ngModel)]="currentStop.tour_id">
+                                                <input type="text" placeholder="Descripción" [(ngModel)]="currentStop.description">
+                                                <button class="btn btn-success" (click)="addStop(currentStop.name, currentStop.lng, currentStop.lat, currentStop.tour_id, currentStop.description)">Submit</button>
+                                                <p></p>
+                                                <p></p>
+                                            </div>
+                                        </div>
+                                        <div class="card text-white bg-primary mb-3" style="width: max;">
+                                            <div class="card-header">Editar Parada</div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">Completa los siguientes datos</h5>
+                                                <input type="text" placeholder="ID de la Parada" [(ngModel)]="currentStop.id">
+                                                <input type="text" placeholder="Nombre de la Parada" [(ngModel)]="currentStop.name">
+                                                <input type="number" placeholder="Longitud" [(ngModel)]="currentStop.lng">
+                                                <input type="number" placeholder="Latitud" [(ngModel)]="currentPlace.lat">
+                                                <input type="number" placeholder="Tour ID" [(ngModel)]="currentStop.tour_id">
+                                                <input type="text" placeholder="Descripción" [(ngModel)]="currentStop.description">
+                                                <button class="btn btn-success" (click)="updateStop(currentStop.id, currentStop.name, currentStop.lng, currentStop.lat, currentStop.tour_id, currentStop.description)">Submit</button>
+                                                <p></p>
+                                                <p></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="tab-pane" id="settings">
+                        <table class="table">
+                            <tbody>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="card">
+                                            <div class="card-header card-header-danger">
+                                                <h4 class="card-title ">Marcadores de Ruta</h4>
+                                                <h1></h1>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="table-responsive">
+                                                    <table class="table">
+                                                        <thead class=" text-primary">
+                                                            <th>
+                                                                Marcador ID
+                                                            </th>
+                                                            <th>
+                                                                Nombre del Marcador
+                                                            </th>
+                                                            <th>
+                                                                Tour ID
+                                                            </th>
+                                                            <th>
+                                                                Latitud
+                                                            </th>
+                                                            <th>
+                                                                Longitud
+                                                            </th>
+                                                            <th>
+                                                                Descripcion
+                                                            </th>
+                                                            <th></th>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr *ngFor="let marker of arrayOfMarkers" class="list-group-item-action">
+                                                                <td>{{marker.id}}</td>
+                                                                <td>{{marker.name}}</td>
+                                                                <td>{{marker.tour_id}}</td>
+                                                                <td>{{marker.lat}}</td>
+                                                                <td>{{marker.lng}}</td>
+                                                                <td>{{marker.description}}</td>
+                                                                <td>
+                                                                    <div class="btn-group">
+                                                                        <button class="btn btn-danger" type="button" (click)="deleteMarker(marker.id)">
+                                                                                            borrar                                                
+                                                                                        </button>
+                                                                    </div>
+
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card text-white bg-rose mb-3" style="width: max;">
+                                            <div class="card-header">Agregar Marcador de Ruta.</div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">Completa los siguientes datos</h5>
+                                                <input type="text" placeholder="Nombre del Marcador" [(ngModel)]="currentMarker.name">
+                                                <input type="number" placeholder="Tour ID" [(ngModel)]="currentMarker.tour_id">
+                                                <input type="number" placeholder="Latitud" [(ngModel)]="currentMarker.lat">
+                                                <input type="number" placeholder="Longitud" [(ngModel)]="currentMarker.lng">
+                                                <input type="text" placeholder="Descripción" [(ngModel)]="currentMarker.description">
+                                                <button class="btn btn-success" (click)="addMarker(currentMarker.name, currentMarker.tour_id, currentMarker.lat, currentMarker.lng, currentMarker.description)">Submit</button>
+                                                <p></p>
+                                                <p></p>
+                                            </div>
+                                        </div>
+                                        <div class="card text-white bg-primary mb-3" style="width: max;">
+                                            <div class="card-header">Editar Marcador de Ruta</div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">Completa los siguientes datos</h5>
+                                                <input type="number" placeholder="ID del Marcador" [(ngModel)]="currentMarker.id">
+                                                <input type="number" placeholder="Tour ID" [(ngModel)]="currentMarker.tour_id">
+                                                <input type="number" placeholder="Latitud" [(ngModel)]="currentMarker.lat">
+                                                <input type="number" placeholder="Longitud" [(ngModel)]="currentMarker.lng">
+                                                <input type="text" placeholder="Descripción" [(ngModel)]="currentMarker.description">
+                                                <input type="text" placeholder="Nombre del Marcador" [(ngModel)]="currentMarker.name">
+                                                <button class="btn btn-success" (click)="updateMarker(currentMarker.id, currentMarker.tour_id, currentMarker.lat, currentMarker.lng, currentMarker.description, currentMarker.name)">Submit</button>
+                                                <p></p>
+                                                <p></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
 </div>

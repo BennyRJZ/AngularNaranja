@@ -1,208 +1,259 @@
 <div class="main-content">
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header card-header-danger">
-                        <h4 class="card-title ">Tours</h4>
-                        <h4>
-                        </h4>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead class=" text-primary">
-                                    <th>
-                                        ID
-                                    </th>
-                                    <th>
-                                        Nombre
-                                    </th>
-                                    <th>
-                                        Imagen ID
-                                    </th>
-                                    <th>
-                                        Description
-                                    </th>
-                                    <th></th>
-                                </thead>
-                                <tbody>
-                                    <tr *ngFor="let tour of arrayOfTours" class="list-group-item-action">
-                                        <td>{{tour.id}}</td>
-                                        <td>{{tour.name}}</td>
-                                        <td>{{tour.image_id}}</td>
-                                        <td>{{tour.description}}</td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <button class="btn btn-danger" type="button" (click)="deleteTour(tour.id)">
-                                                        Borrar </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <div class="card text-white bg-rose mb-3" style="width: max;">
-                    <div class="card-header">Agregar Tour</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Completa los siguientes datos</h5>
-                        <input type="text" placeholder="Nombre" [(ngModel)]="currentTour.name">
-                        <input type="text" placeholder="Imagen ID" [(ngModel)]="currentTour.image_id">
-                        <input type="text" placeholder="Descripción" [(ngModel)]="currentTour.description">
-                        <button class="btn btn-success" (click)="addTour(currentTour.name, currentTour.image_id, currentTour.description)">Submit</button>
-                    </div>
-                </div>
-                <div class="card text-white bg-primary mb-3" style="width: max;">
-                    <div class="card-header">Editar Tour</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Completa los siguientes datos</h5>
-                        <input type="text" placeholder="ID" [(ngModel)]="currentTour.id">
-                        <input type="text" placeholder="Nombre" [(ngModel)]="currentTour.name">
-                        <input type="text" placeholder="Imagen ID" [(ngModel)]="currentTour.image_id">
-                        <input type="text" placeholder="Descripción" [(ngModel)]="currentTour.description">
-                        <button class="btn btn-success" (click)="updateTour(currentTour.id, currentTour.name, currentTour.image_id, currentTour.description)">Submit</button>
+        <div class="card">
+            <div class="card-header card-header-tabs card-header-success">
+                <div class="nav-tabs-navigation">
+                    <div class="nav-tabs-wrapper">
+                        <span class="nav-tabs-title">Opciones:</span>
+                        <ul class="nav nav-tabs" data-tabs="tabs">
+                            <li class="nav-item">
+                                <a mat-button class="nav-link active" href="#profile" data-toggle="tab">
+                                    <i class="material-icons">title</i> Tours
+                                    <div class="ripple-container"></div>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a mat-button class="nav-link" href="#messages" data-toggle="tab">
+                                    <i class="material-icons">image_search</i> Murales
+                                    <div class="ripple-container"></div>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a mat-button class="nav-link" href="#settings" data-toggle="tab">
+                                    <i class="material-icons">subway</i> Autobuses
+                                    <div class="ripple-container"></div>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header card-header-danger">
-                        <h4 class="card-title ">Murales</h4>
-                        <h4>
-                        </h4>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead class=" text-primary">
-                                    <th>
-                                        ID
-                                    </th>
-                                    <th>
-                                        Title
-                                    </th>
-                                    <th>
-                                        Author Name
-                                    </th>
-                                    <th>
-                                        Author Last Name
-                                    </th>
-                                    <th>
-                                        Description
-                                    </th>
-                                    <th></th>
-                                </thead>
-                                <tbody>
-                                    <tr *ngFor="let mural of arrayOfmurals" class="list-group-item-action">
-                                        <td>{{mural.id}}</td>
-                                        <td>{{mural.title}}</td>
-                                        <td>{{mural.last_name}}</td>
-                                        <td>{{mural.name}}</td>
-                                        <td>{{mural.description}}</td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <button class="btn btn-danger" type="button" (click)="deleteMural(mural.id)">
-                                                Borrar </button>
+            <div class="card-body">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="profile">
+                        <table class="table">
+                            <tbody>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="card">
+                                            <div class="card-header card-header-danger">
+                                                <h4 class="card-title ">Tours</h4>
+                                                <h4>
+                                                </h4>
                                             </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <div class="card text-white bg-rose mb-3" style="width: max;">
-                    <div class="card-header">Agregar Mural</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Completa los siguientes datos</h5>
-                        <input type="text" placeholder="Título" [(ngModel)]="currentMural.title">
-                        <input type="text" placeholder="Nombre" [(ngModel)]="currentMural.name">
-                        <input type="text" placeholder="Apellido" [(ngModel)]="currentMural.lastname">
-                        <input type="text" placeholder="Descripción" [(ngModel)]="currentMural.description">
-                        <button class="btn btn-success" (click)="addMural(currentMural.title, currentMural.name, currentMural.lastname ,currentMural.description)">Submit</button>
-                    </div>
-                </div>
-                <div class="card text-white bg-primary mb-3" style="width: max;">
-                    <div class="card-header">Editar Mural</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Completa los siguientes datos</h5>
-                        <input type="text" placeholder="ID" [(ngModel)]="currentMural.id">
-                        <input type="text" placeholder="Título" [(ngModel)]="currentMural.title">
-                        <input type="text" placeholder="Nombre" [(ngModel)]="currentMural.name">
-                        <input type="text" placeholder="Apellido" [(ngModel)]="currentMural.lastname">
-                        <input type="text" placeholder="Descripción" [(ngModel)]="currentMural.description">
-                        <button class="btn btn-success" (click)="updateMural(currentMural.id, currentMural.title, currentMural.name, currentMural.lastname ,currentMural.description)">Submit</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header card-header-danger">
-                        <h4 class="card-title ">Autobuses</h4>
-                        <h4>
-                        </h4>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead class=" text-primary">
-                                    <th>
-                                        ID
-                                    </th>
-                                    <th>
-                                        Capacidad
-                                    </th>
-                                    <th>
-                                        Tour_ID
-                                    </th>
-                                    <th>
-                                        Mural_ID
-                                    </th>
-                                    <th></th>
-                                </thead>
-                                <tbody>
-                                    <tr *ngFor="let bus of arrayOfBuses" class="list-group-item-action">
-                                        <td>{{bus.id}}</td>
-                                        <td>{{bus.capacity}}</td>
-                                        <td>{{bus.tour_id}}</td>
-                                        <td>{{bus.mural_id}}</td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <button class="btn btn-danger" type="button" (click)="deleteBus(bus.id)">
-                                                    Borrar </button>
+                                            <div class="card-body">
+                                                <div class="table-responsive">
+                                                    <table class="table">
+                                                        <thead class=" text-primary">
+                                                            <th>
+                                                                ID
+                                                            </th>
+                                                            <th>
+                                                                Nombre
+                                                            </th>
+                                                            <th>
+                                                                Imagen ID
+                                                            </th>
+                                                            <th>
+                                                                Description
+                                                            </th>
+                                                            <th></th>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr *ngFor="let tour of arrayOfTours" class="list-group-item-action">
+                                                                <td>{{tour.id}}</td>
+                                                                <td>{{tour.name}}</td>
+                                                                <td>{{tour.image_id}}</td>
+                                                                <td>{{tour.description}}</td>
+                                                                <td>
+                                                                    <div class="btn-group">
+                                                                        <button class="btn btn-danger" type="button" (click)="deleteTour(tour.id)">
+                                                                                                Borrar </button>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
                                             </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                                        </div>
+                                        <div class="card text-white bg-rose mb-3" style="width: max;">
+                                            <div class="card-header">Agregar Tour</div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">Completa los siguientes datos</h5>
+                                                <input type="text" placeholder="Nombre" [(ngModel)]="currentTour.name">
+                                                <input type="text" placeholder="Imagen ID" [(ngModel)]="currentTour.image_id">
+                                                <input type="text" placeholder="Descripción" [(ngModel)]="currentTour.description">
+                                                <button class="btn btn-success" (click)="addTour(currentTour.name, currentTour.image_id, currentTour.description)">Submit</button>
+                                            </div>
+                                        </div>
+                                        <div class="card text-white bg-primary mb-3" style="width: max;">
+                                            <div class="card-header">Editar Tour</div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">Completa los siguientes datos</h5>
+                                                <input type="text" placeholder="ID" [(ngModel)]="currentTour.id">
+                                                <input type="text" placeholder="Nombre" [(ngModel)]="currentTour.name">
+                                                <input type="text" placeholder="Imagen ID" [(ngModel)]="currentTour.image_id">
+                                                <input type="text" placeholder="Descripción" [(ngModel)]="currentTour.description">
+                                                <button class="btn btn-success" (click)="updateTour(currentTour.id, currentTour.name, currentTour.image_id, currentTour.description)">Submit</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </tbody>
+                        </table>
                     </div>
-                </div>
-                <div class="card text-white bg-rose mb-3" style="width: max;">
-                    <div class="card-header">Agregar Bus</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Completa los siguientes datos</h5>
-                        <input type="number" placeholder="Capacidad" [(ngModel)]="currentBus.capacity">
-                        <input type="number" placeholder="Tour ID" [(ngModel)]="currentBus.tour_id">
-                        <input type="number" placeholder="Mural ID" [(ngModel)]="currentBus.mural_id">
-                        <button class="btn btn-success" (click)="addBus(currentBus.capacity,currentBus.tour_id,currentBus.mural_id)">Submit</button>
+                    <div class="tab-pane" id="messages">
+                        <table class="table">
+                            <tbody>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="card">
+                                            <div class="card-header card-header-danger">
+                                                <h4 class="card-title ">Murales</h4>
+                                                <h4>
+                                                </h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="table-responsive">
+                                                    <table class="table">
+                                                        <thead class=" text-primary">
+                                                            <th>
+                                                                ID
+                                                            </th>
+                                                            <th>
+                                                                Title
+                                                            </th>
+                                                            <th>
+                                                                Author Name
+                                                            </th>
+                                                            <th>
+                                                                Author Last Name
+                                                            </th>
+                                                            <th>
+                                                                Description
+                                                            </th>
+                                                            <th></th>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr *ngFor="let mural of arrayOfmurals" class="list-group-item-action">
+                                                                <td>{{mural.id}}</td>
+                                                                <td>{{mural.title}}</td>
+                                                                <td>{{mural.last_name}}</td>
+                                                                <td>{{mural.name}}</td>
+                                                                <td>{{mural.description}}</td>
+                                                                <td>
+                                                                    <div class="btn-group">
+                                                                        <button class="btn btn-danger" type="button" (click)="deleteMural(mural.id)">
+                                                                                        Borrar </button>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card text-white bg-rose mb-3" style="width: max;">
+                                            <div class="card-header">Agregar Mural</div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">Completa los siguientes datos</h5>
+                                                <input type="text" placeholder="Título" [(ngModel)]="currentMural.title">
+                                                <input type="text" placeholder="Nombre" [(ngModel)]="currentMural.name">
+                                                <input type="text" placeholder="Apellido" [(ngModel)]="currentMural.lastname">
+                                                <input type="text" placeholder="Descripción" [(ngModel)]="currentMural.description">
+                                                <button class="btn btn-success" (click)="addMural(currentMural.title, currentMural.name, currentMural.lastname ,currentMural.description)">Submit</button>
+                                            </div>
+                                        </div>
+                                        <div class="card text-white bg-primary mb-3" style="width: max;">
+                                            <div class="card-header">Editar Mural</div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">Completa los siguientes datos</h5>
+                                                <input type="text" placeholder="ID" [(ngModel)]="currentMural.id">
+                                                <input type="text" placeholder="Título" [(ngModel)]="currentMural.title">
+                                                <input type="text" placeholder="Nombre" [(ngModel)]="currentMural.name">
+                                                <input type="text" placeholder="Apellido" [(ngModel)]="currentMural.lastname">
+                                                <input type="text" placeholder="Descripción" [(ngModel)]="currentMural.description">
+                                                <button class="btn btn-success" (click)="updateMural(currentMural.id, currentMural.title, currentMural.name, currentMural.lastname ,currentMural.description)">Submit</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </tbody>
+                        </table>
                     </div>
-                </div>
-                <div class="card text-white bg-primary mb-3" style="width: max;">
-                    <div class="card-header">Editar Bus</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Completa los siguientes datos</h5>
-                        <input type="number" placeholder="ID" [(ngModel)]="currentBus.id">
-                        <input type="number" placeholder="Capacidad" [(ngModel)]="currentBus.capacity">
-                        <input type="number" placeholder="Tour ID" [(ngModel)]="currentBus.tour_id">
-                        <input type="number" placeholder="Mural ID" [(ngModel)]="currentBus.mural_id">
-                        <button class="btn btn-success" (click)="updateBus(currentBus.id, currentBus.capacity,currentBus.tour_id,currentBus.mural_id)">Submit</button>
+                    <div class="tab-pane" id="settings">
+                        <table class="table">
+                            <tbody>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="card">
+                                            <div class="card-header card-header-danger">
+                                                <h4 class="card-title ">Autobuses</h4>
+                                                <h4>
+                                                </h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="table-responsive">
+                                                    <table class="table">
+                                                        <thead class=" text-primary">
+                                                            <th>
+                                                                ID
+                                                            </th>
+                                                            <th>
+                                                                Capacidad
+                                                            </th>
+                                                            <th>
+                                                                Tour_ID
+                                                            </th>
+                                                            <th>
+                                                                Mural_ID
+                                                            </th>
+                                                            <th></th>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr *ngFor="let bus of arrayOfBuses" class="list-group-item-action">
+                                                                <td>{{bus.id}}</td>
+                                                                <td>{{bus.capacity}}</td>
+                                                                <td>{{bus.tour_id}}</td>
+                                                                <td>{{bus.mural_id}}</td>
+                                                                <td>
+                                                                    <div class="btn-group">
+                                                                        <button class="btn btn-danger" type="button" (click)="deleteBus(bus.id)">
+                                                                                            Borrar </button>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card text-white bg-rose mb-3" style="width: max;">
+                                            <div class="card-header">Agregar Bus</div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">Completa los siguientes datos</h5>
+                                                <input type="number" placeholder="Capacidad" [(ngModel)]="currentBus.capacity">
+                                                <input type="number" placeholder="Tour ID" [(ngModel)]="currentBus.tour_id">
+                                                <input type="number" placeholder="Mural ID" [(ngModel)]="currentBus.mural_id">
+                                                <button class="btn btn-success" (click)="addBus(currentBus.capacity,currentBus.tour_id,currentBus.mural_id)">Submit</button>
+                                            </div>
+                                        </div>
+                                        <div class="card text-white bg-primary mb-3" style="width: max;">
+                                            <div class="card-header">Editar Bus</div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">Completa los siguientes datos</h5>
+                                                <input type="number" placeholder="ID" [(ngModel)]="currentBus.id">
+                                                <input type="number" placeholder="Capacidad" [(ngModel)]="currentBus.capacity">
+                                                <input type="number" placeholder="Tour ID" [(ngModel)]="currentBus.tour_id">
+                                                <input type="number" placeholder="Mural ID" [(ngModel)]="currentBus.mural_id">
+                                                <button class="btn btn-success" (click)="updateBus(currentBus.id, currentBus.capacity,currentBus.tour_id,currentBus.mural_id)">Submit</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
