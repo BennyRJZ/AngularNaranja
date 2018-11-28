@@ -15,6 +15,6 @@ export class LoginService {
       email: email,
       password: password
     };
-    return this.http.post<Login>('http://api-estrella-roja.appspot.com/users/login', obj);
+    return this.http.post<Login>('http://api-estrella-roja.appspot.com/adminusers/' + 'login', obj);
 }
 }
