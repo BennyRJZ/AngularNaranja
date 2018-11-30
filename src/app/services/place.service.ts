@@ -13,7 +13,7 @@ export class PlaceService {
 
   getPlace(): Observable<Places[]> {
 
-    return this.http.get<Places[]>('https://api-estrella-roja.appspot.com/place');
+    return this.http.get<Places[]>('https://api-estrella-roja.appspot.com/place?limit=1000');
   }
 
   deletePlace(id: number): Observable<Places> {

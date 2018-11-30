@@ -21,7 +21,7 @@ export class ImageService {
       image_url: image_url,
       description: description
     };
-    return this.http.post<Image>('https://api-estrella-roja.appspot.com' + '/markers' , obj);
+    return this.http.post<Image>('https://api-estrella-roja.appspot.com' + '/image' , obj);
   }
   updateImage(id, image_url, description): Observable<Image> {
     const obj = {

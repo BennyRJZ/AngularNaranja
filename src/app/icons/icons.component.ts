@@ -12,6 +12,7 @@ export class IconsComponent implements OnInit {
   public array = [];
   public arrayOfImages = [];
   public currentImage = [];
+  
 
 
   constructor(private imageService: ImageService) { }

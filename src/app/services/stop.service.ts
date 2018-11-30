@@ -13,7 +13,7 @@ export class StopService {
 
   getStop(): Observable<Stop[]> {
 
-    return this.http.get<Stop[]>('https://api-estrella-roja.appspot.com' + '/stop');
+    return this.http.get<Stop[]>('https://api-estrella-roja.appspot.com/stop?limit=1000');
   }
 
   deleteStop(id: number): Observable<Stop> {

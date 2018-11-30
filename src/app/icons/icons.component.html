@@ -42,5 +42,28 @@ borrar                                                </button>
                 </div>
             </div>
         </div>
+        <div class="card text-white bg-rose mb-3" style="width: max;">
+            <div class="card-header">Agregar Enlace de Imagen.</div>
+            <div class="card-body">
+                <h5 class="card-title">Completa los siguientes datos</h5>
+                <input type="url" placeholder="URL" [(ngModel)]="currentImage.image_url">
+                <input type="text" placeholder="Descripción" [(ngModel)]="currentImage.description">
+                <button class="btn btn-success" (click)="addImage(currentImage.image_url, currentImage.description)">Submit</button>
+                <p></p>
+                <p></p>
+            </div>
+        </div>
+        <div class="card text-white bg-primary mb-3" style="width: max;">
+            <div class="card-header">Editar Enlace de Imagen</div>
+            <div class="card-body">
+                <h5 class="card-title">Completa los siguientes datos</h5>
+                <input type="number" placeholder="ID de la imagen" [(ngModel)]="currentImage.id">
+                <input type="url" placeholder="URL" [(ngModel)]="currentImage.image_url">
+                <input type="text" placeholder="Descripcion" [(ngModel)]="currentImage.description">
+                <button class="btn btn-success" (click)="updateImage(currentImage.id, currentImage.image_url, currentImage.description)">Submit</button>
+                <p></p>
+                <p></p>
+            </div>
+        </div>
     </div>
 </div>

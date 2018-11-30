@@ -13,7 +13,7 @@ export class MarkerService {
 
   getMarkers(): Observable<Marker[]> {
 
-    return this.http.get<Marker[]>('https://api-estrella-roja.appspot.com/markers');
+    return this.http.get<Marker[]>('https://api-estrella-roja.appspot.com/markers?limit=1000');
   }
 
   deleteMarker(id: number): Observable<Marker> {

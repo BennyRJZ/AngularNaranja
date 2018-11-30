@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PlaceService } from '../services/place.service';
 import { StopService } from 'app/services/stop.service';
 import { MarkerService } from 'app/services/marker.service';
+import {MatCardModule} from '@angular/material/card'
 
 @Component({
   selector: 'app-maps',
@@ -18,7 +19,6 @@ export class MapsComponent implements OnInit {
   public currentPlace = [];
   public currentStop = [];
   public currentMarker = [];
-
 
   constructor(private placeService: PlaceService, private stopService: StopService, private markerService: MarkerService) { }
   // Metodos para borrar Punto de Interes, Parada y Marcador.
@@ -78,23 +78,23 @@ export class MapsComponent implements OnInit {
   // Métodos para obtener Puntos de Interés, Paradas y Marcadores.
   fetch() {
     this.placeService.getPlace()
-    .subscribe(res => {
-      this.arrayOfPlaces = res;
-      console.log(res);
+    .subscribe(resp => {
+      this.arrayOfPlaces = resp;
+      console.log(resp);
     });
   }
   obt(){
     this.stopService.getStop()
-    .subscribe(res => {
-      this.arrayOfStops = res;
-      console.log(res);
+    .subscribe(ress => {
+      this.arrayOfStops = ress;
+      console.log(ress);
     });
   }
   gMarker() {
     this.markerService.getMarkers()
-    .subscribe(res => {
-      this.arrayOfMarkers = res;
-      console.log(res);
+    .subscribe(resm => {
+      this.arrayOfMarkers = resm;
+      console.log(resm);
     });
   }
 
@@ -105,5 +105,4 @@ export class MapsComponent implements OnInit {
     this.gMarker();
 
   }
-
 }

@@ -12,6 +12,7 @@ import { LoginService } from './services/login.service';
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 
+
 import { AppComponent } from './app.component';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -30,6 +31,7 @@ import { LoginComponent } from './login/login.component';
 import { MarkerService } from './services/marker.service';
 import { TourService } from './services/tour.service';
 import { ImageService } from './services/image.service';
+import { MatCardModule } from '@angular/material/card';
 
 
 @NgModule({
@@ -41,8 +43,9 @@ import { ImageService } from './services/image.service';
     ComponentsModule,
     RouterModule,
     AppRoutingModule,
+    MatCardModule,
     AgmCoreModule.forRoot({
-      apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
+      apiKey: 'AIzaSyDpE7K_Yyyh_z6CfEQyVIHT6pghVV77K5g'
     })
   ],
   declarations: [

@@ -34,6 +34,21 @@
                         <table class="table">
                             <tbody>
                                 <div class="row">
+                                    <div class="card text-white bg-rose mb-3" style="width: max;">
+                                        <div class="card-header">Agregar Punto de Interés</div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Completa los siguientes datos</h5>
+                                            <input type="text" placeholder="Nombre del Punto" [(ngModel)]="currentPlace.name">
+                                            <input type="number" placeholder="Longitud" [(ngModel)]="currentPlace.lng">
+                                            <input type="number" placeholder="Latitud" [(ngModel)]="currentPlace.lat">
+                                            <input type="number" placeholder="Place Type ID" [(ngModel)]="currentPlace.place_type_id">
+                                            <input type="text" placeholder="Descripción" [(ngModel)]="currentPlace.description">
+                                            <input type="number" placeholder="Narrativa" [(ngModel)]="currentPlace.narrative_id">
+                                            <button class="btn btn-success" (click)="addPlace(currentPlace.name, currentPlace.lng, currentPlace.lat, currentPlace.place_type_id, currentPlace.description, currentPlace.narrative_id)">Submit</button>
+                                            <p></p>
+                                            <p></p>
+                                        </div>
+                                    </div>
                                     <div class="col-md-12">
                                         <div class="card">
                                             <div class="card-header card-header-danger">
@@ -90,21 +105,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="card text-white bg-rose mb-3" style="width: max;">
-                                            <div class="card-header">Agregar Punto de Interés</div>
-                                            <div class="card-body">
-                                                <h5 class="card-title">Completa los siguientes datos</h5>
-                                                <input type="text" placeholder="Nombre del Punto" [(ngModel)]="currentPlace.name">
-                                                <input type="number" placeholder="Longitud" [(ngModel)]="currentPlace.lng">
-                                                <input type="number" placeholder="Latitud" [(ngModel)]="currentPlace.lat">
-                                                <input type="number" placeholder="Place Type ID" [(ngModel)]="currentPlace.place_type_id">
-                                                <input type="text" placeholder="Descripción" [(ngModel)]="currentPlace.description">
-                                                <input type="number" placeholder="Narrativa" [(ngModel)]="currentPlace.narrative_id">
-                                                <button class="btn btn-success" (click)="addPlace(currentPlace.name, currentPlace.lng, currentPlace.lat, currentPlace.place_type_id, currentPlace.description, currentPlace.narrative_id)">Submit</button>
-                                                <p></p>
-                                                <p></p>
-                                            </div>
-                                        </div>
                                         <div class="card text-white bg-primary mb-3" style="width: max;">
                                             <div class="card-header">Editar Punto de Interés</div>
                                             <div class="card-body">
@@ -130,6 +130,20 @@
                         <table class="table">
                             <tbody>
                                 <div class="row">
+                                    <div class="card text-white bg-rose mb-3" style="width: max;">
+                                        <div class="card-header">Agregar Parada</div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Completa los siguientes datos</h5>
+                                            <input type="text" placeholder="Nombre de la Parada" [(ngModel)]="currentStop.name">
+                                            <input type="number" placeholder="Longitud" [(ngModel)]="currentStop.lng">
+                                            <input type="number" placeholder="Latitud" [(ngModel)]="currentStop.lat">
+                                            <input type="number" placeholder="Tour ID" [(ngModel)]="currentStop.tour_id">
+                                            <input type="text" placeholder="Descripción" [(ngModel)]="currentStop.description">
+                                            <button class="btn btn-success" (click)="addStop(currentStop.name, currentStop.lng, currentStop.lat, currentStop.tour_id, currentStop.description)">Submit</button>
+                                            <p></p>
+                                            <p></p>
+                                        </div>
+                                    </div>
                                     <div class="col-md-12">
                                         <div class="card">
                                             <div class="card-header card-header-danger">
@@ -182,20 +196,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="card text-white bg-rose mb-3" style="width: max;">
-                                            <div class="card-header">Agregar Parada</div>
-                                            <div class="card-body">
-                                                <h5 class="card-title">Completa los siguientes datos</h5>
-                                                <input type="text" placeholder="Nombre de la Parada" [(ngModel)]="currentStop.name">
-                                                <input type="number" placeholder="Longitud" [(ngModel)]="currentStop.lng">
-                                                <input type="number" placeholder="Latitud" [(ngModel)]="currentStop.lat">
-                                                <input type="number" placeholder="Tour ID" [(ngModel)]="currentStop.tour_id">
-                                                <input type="text" placeholder="Descripción" [(ngModel)]="currentStop.description">
-                                                <button class="btn btn-success" (click)="addStop(currentStop.name, currentStop.lng, currentStop.lat, currentStop.tour_id, currentStop.description)">Submit</button>
-                                                <p></p>
-                                                <p></p>
-                                            </div>
-                                        </div>
                                         <div class="card text-white bg-primary mb-3" style="width: max;">
                                             <div class="card-header">Editar Parada</div>
                                             <div class="card-body">
@@ -220,6 +220,20 @@
                         <table class="table">
                             <tbody>
                                 <div class="row">
+                                    <div class="card text-white bg-rose mb-3" style="width: max;">
+                                        <div class="card-header">Agregar Marcador de Ruta.</div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Completa los siguientes datos</h5>
+                                            <input type="text" placeholder="Nombre del Marcador" [(ngModel)]="currentMarker.name">
+                                            <input type="number" placeholder="Tour ID" [(ngModel)]="currentMarker.tour_id">
+                                            <input type="number" placeholder="Latitud" [(ngModel)]="currentMarker.lat">
+                                            <input type="number" placeholder="Longitud" [(ngModel)]="currentMarker.lng">
+                                            <input type="text" placeholder="Descripción" [(ngModel)]="currentMarker.description">
+                                            <button class="btn btn-success" (click)="addMarker(currentMarker.name, currentMarker.tour_id, currentMarker.lat, currentMarker.lng, currentMarker.description)">Submit</button>
+                                            <p></p>
+                                            <p></p>
+                                        </div>
+                                    </div>
                                     <div class="col-md-12">
                                         <div class="card">
                                             <div class="card-header card-header-danger">
@@ -270,20 +284,6 @@
                                                         </tbody>
                                                     </table>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="card text-white bg-rose mb-3" style="width: max;">
-                                            <div class="card-header">Agregar Marcador de Ruta.</div>
-                                            <div class="card-body">
-                                                <h5 class="card-title">Completa los siguientes datos</h5>
-                                                <input type="text" placeholder="Nombre del Marcador" [(ngModel)]="currentMarker.name">
-                                                <input type="number" placeholder="Tour ID" [(ngModel)]="currentMarker.tour_id">
-                                                <input type="number" placeholder="Latitud" [(ngModel)]="currentMarker.lat">
-                                                <input type="number" placeholder="Longitud" [(ngModel)]="currentMarker.lng">
-                                                <input type="text" placeholder="Descripción" [(ngModel)]="currentMarker.description">
-                                                <button class="btn btn-success" (click)="addMarker(currentMarker.name, currentMarker.tour_id, currentMarker.lat, currentMarker.lng, currentMarker.description)">Submit</button>
-                                                <p></p>
-                                                <p></p>
                                             </div>
                                         </div>
                                         <div class="card text-white bg-primary mb-3" style="width: max;">
